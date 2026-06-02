@@ -12,9 +12,9 @@ function Layout({ children }) {
     }`;
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
-  };
+  localStorage.removeItem("token");
+  navigate("/login");
+};
 
   return (
     <div className="flex h-screen bg-gray-100">
