@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(docker compose down; docker rm -f inventory-app-frontend-1 inventory-app-backend-1 inventory-app-db-1 2>$null; docker compose up --build)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(wsl --shutdown; Start-Sleep -Seconds 5; docker ps -a --format \"{{.Names}}: {{.Status}}\")",
+      "PowerShell(docker rm *)"
+    ]
+  }
+}
