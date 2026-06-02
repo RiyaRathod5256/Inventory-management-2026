@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, NavLink, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink, Navigate,useNavigate} from "react-router-dom";
 import { useState, useEffect } from "react";
 import Products from "./pages/Products.jsx";
 import Customers from "./pages/Customers.jsx";
@@ -6,16 +6,17 @@ import Orders from "./pages/Orders.jsx";
 import Login from "./pages/Login.jsx";
 
 function Layout({ children }) {
+  const navigate = useNavigate();
+
   const navClass = ({ isActive }) =>
     `flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
       isActive ? "bg-indigo-700 text-white" : "text-indigo-100 hover:bg-indigo-700/60"
     }`;
 
   const handleLogout = () => {
-  localStorage.removeItem("token");
-  navigate("/login");
-};
-
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
